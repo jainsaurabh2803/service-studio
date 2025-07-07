@@ -27,30 +27,30 @@ const Industries = () => {
       description: "FMCG, retail, food & beverage, and consumer electronics",
       growth: "+20% YoY"
     },
-    {
-      icon: <Car className="w-8 h-8" />,
-      title: "Transportation",
-      description: "Logistics, shipping, railways, and mobility solutions",
-      growth: "+22% YoY"
-    },
-    {
-      icon: <Smartphone className="w-8 h-8" />,
-      title: "Telecommunications",
-      description: "Telecom services, infrastructure, and digital solutions",
-      growth: "+12% YoY"
-    },
+    // {
+    //   icon: <Car className="w-8 h-8" />,
+    //   title: "Transportation",
+    //   description: "Logistics, shipping, railways, and mobility solutions",
+    //   growth: "+22% YoY"
+    // },
+    // {
+    //   icon: <Smartphone className="w-8 h-8" />,
+    //   title: "Telecommunications",
+    //   description: "Telecom services, infrastructure, and digital solutions",
+    //   growth: "+12% YoY"
+    // },
     {
       icon: <Landmark className="w-8 h-8" />,
       title: "Financial Services",
       description: "Banking, insurance, asset management, and fintech",
       growth: "+16% YoY"
-    },
-    {
-      icon: <Zap className="w-8 h-8" />,
-      title: "Energy & Utilities",
-      description: "Renewable energy, oil & gas, and utility services",
-      growth: "+30% YoY"
     }
+    // {
+    //   icon: <Zap className="w-8 h-8" />,
+    //   title: "Energy & Utilities",
+    //   description: "Renewable energy, oil & gas, and utility services",
+    //   growth: "+30% YoY"
+    // }
   ];
 
   return (
