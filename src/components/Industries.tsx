@@ -15,12 +15,12 @@ const Industries = () => {
       description: "Pharmaceuticals, biotechnology, and healthcare services",
       growth: "+18% YoY"
     },
-    {
-      icon: <Factory className="w-8 h-8" />,
-      title: "Manufacturing",
-      description: "Automotive, textiles, chemicals, and industrial equipment",
-      growth: "+15% YoY"
-    },
+    // {
+    //   icon: <Factory className="w-8 h-8" />,
+    //   title: "Manufacturing",
+    //   description: "Automotive, textiles, chemicals, and industrial equipment",
+    //   growth: "+15% YoY"
+    // },
     {
       icon: <ShoppingCart className="w-8 h-8" />,
       title: "Consumer Goods",
