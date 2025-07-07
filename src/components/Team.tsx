@@ -15,7 +15,7 @@ const Team = () => {
       name: "Saurabh Jain",
       position: "Senior Partner",
       expertise: "Due Diligence & Financial Analyst",
-      image: "https://photos.app.goo.gl/NfYVFZV5L4Ymc2oJ6?auto=compress&cs=tinysrgb&w=400",
+      image: "saurabh iamge.jpg",
       experience: "7+ years",
       education: "BITS Pilani"
     }
