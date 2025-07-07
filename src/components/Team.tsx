@@ -7,7 +7,7 @@ const Team = () => {
       name: "Navneet Agarwal",
       position: "Managing Partner",
       expertise: "Financial and Strategic Advisory & Cross-border M&A",
-      image: "https://photos.app.goo.gl/uBJcbUByb6zQE5gPA",
+      image: "navneet image.png",
       experience: "12+ years",
       education: "CA, CFA, CMA"
     },
