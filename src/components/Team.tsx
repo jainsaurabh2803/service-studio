@@ -159,7 +159,7 @@ const Team = () => {
           ))}
         </div>
 
-        <div className="mt-16 bg-blue-50 rounded-2xl p-8">
+{/*         <div className="mt-16 bg-blue-50 rounded-2xl p-8">
           <div className="text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Join Our Expert Team
@@ -172,7 +172,7 @@ const Team = () => {
               View Career Opportunities
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
