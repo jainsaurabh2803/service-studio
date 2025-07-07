@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,11 +11,48 @@ const Contact = () => {
     service: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // EmailJS configuration
+      const serviceId = 'service_ma_partners'; // You'll need to set this up in EmailJS
+      const templateId = 'template_contact_form'; // You'll need to create this template
+      const publicKey = 'YOUR_PUBLIC_KEY'; // You'll need to get this from EmailJS
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company,
+        phone: formData.phone,
+        service: formData.service,
+        message: formData.message,
+        to_email: 'jainsaurabh1995@gmail.com',
+        reply_to: formData.email
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        service: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -220,11 +258,42 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 flex items-center justify-center gap-2"
+                disabled={isSubmitting}
+                className={`w-full px-6 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 flex items-center justify-center gap-2 ${
+                  isSubmitting 
+                    ? 'bg-gray-400 cursor-not-allowed' 
+                    : 'bg-blue-600 hover:bg-blue-700 text-white'
+                }`}
               >
-                Send Message
-                <Send className="w-5 h-5" />
+                {isSubmitting ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="w-5 h-5" />
+                  </>
+                )}
               </button>
+
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <p className="text-green-800 text-sm font-medium">
+                    ✅ Message sent successfully! We'll get back to you within 24 hours.
+                  </p>
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-red-800 text-sm font-medium">
+                    ❌ Failed to send message. Please try again or contact us directly at jainsaurabh1995@gmail.com
+                  </p>
+                </div>
+              )}
             </form>
           </div>
         </div>
